@@ -2,6 +2,9 @@ package diogenes.com.finaldemo.root;
 
 import android.app.Application;
 
+import diogenes.com.finaldemo.http.api.Modules.MoreInfoApiModule;
+import diogenes.com.finaldemo.http.api.Modules.MovieApiModule;
+
 public class App extends Application {
 
     private ApplicationComponent component;
@@ -13,6 +16,8 @@ public class App extends Application {
         //needs to run once to generate it
         component = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this))
+                .moreInfoApiModule(new MoreInfoApiModule())
+                .movieApiModule(new MovieApiModule())
                 .build();
 
     }
