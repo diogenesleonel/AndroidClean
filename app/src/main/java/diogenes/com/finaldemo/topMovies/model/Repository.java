@@ -16,7 +16,7 @@ public interface Repository {
 
     Observable<String> getCountriesFromMemory();
 
-    Observable<String> getContriesFromMemory();
+    Observable<String> getCountriesFromNetwork();
 
     // Facades
 
