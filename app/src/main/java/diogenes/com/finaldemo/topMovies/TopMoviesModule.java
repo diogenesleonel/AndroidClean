@@ -14,8 +14,7 @@ import diogenes.com.finaldemo.topMovies.model.TopMoviesRepository;
 
 @Module
 public class TopMoviesModule {
-
-
+    
 
     @Provides
     public TopMoviesActivityMVP.Presenter provideTopMoviesActivityPresenter(TopMoviesActivityMVP.Model model) {

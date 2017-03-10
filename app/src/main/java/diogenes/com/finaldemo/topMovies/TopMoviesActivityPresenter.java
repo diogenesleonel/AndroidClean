@@ -27,6 +27,7 @@ public class TopMoviesActivityPresenter implements TopMoviesActivityMVP.Presente
     @Override
     public void loadData() {
 
+        // Subscribe to model observable
         subscription = model.result()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -41,21 +42,39 @@ public class TopMoviesActivityPresenter implements TopMoviesActivityMVP.Presente
 
                         e.printStackTrace();
 
+                        if(view != null) view.showSnackbar("Can't get movies");
+
                     }
 
                     @Override
                     public void onNext(ViewModel viewModel) {
+
+                        // Notifies view if new data is available
+                        if(view != null){
+
+                            view.updateData(viewModel);
+
+                        }
 
                     }
                 });
 
     }
 
+    // On configuration change or destruction of Activity,
+    // we need to call this method to avoid memory leaks
     @Override
     public void rxUnsubscribe() {
 
+        if(subscription != null
+                && !subscription.isUnsubscribed()){
+
+            subscription.unsubscribe();
+
+        }
     }
 
+    // Inject view into presenter
     @Override
     public void setView(@NonNull TopMoviesActivityMVP.View view) {
         this.view = view;

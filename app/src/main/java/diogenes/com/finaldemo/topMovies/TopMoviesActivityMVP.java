@@ -15,7 +15,7 @@ public interface TopMoviesActivityMVP {
 
     interface View {
 
-        void updateDate(ViewModel viewModel);
+        void updateData(ViewModel viewModel);
 
         void showSnackbar(String s);
 
