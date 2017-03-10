@@ -8,7 +8,10 @@ import rx.Observable;
 /**
  * Created by diogenes on 09/03/17.
  */
+
+// Endpoint omdb
 public interface MoreInfoApiService {
+
 
     @GET("/")
     Observable<OmdbApi> getCountry(@Query("t") String title);
