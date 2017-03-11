@@ -7,7 +7,7 @@ import rx.Observable;
  * Created by diogenes on 09/03/17.
  */
 
-// TODO
+
 public interface Repository {
 
     Observable<Result> getResultFromMemory();
