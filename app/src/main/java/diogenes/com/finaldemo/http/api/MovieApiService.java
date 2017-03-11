@@ -8,6 +8,8 @@ import rx.Observable;
 /**
  * Created by diogenes on 09/03/17.
  */
+
+// Endpoint themoviedb
 public interface MovieApiService {
 
     @GET("top_rated")
